@@ -39,13 +39,14 @@ class TrainController extends Controller
         $data = $request->all();
 
         $train = new Train();
-        $train->azienda = ['azienda'];
-        $train->stazione_di_partenza = ['stazione_di_partenza'];
-        $train->stazione_di_arrivo = ['stazione_di_arrivo'];
-        $train->orario_di_partenza = ['orario_di_partenza'];
-        $train->orario_di_arrivo = ['orario_di_arrivo'];
-        $train->data = ['data'];
-        $train->codice_treno = ['codice_treno'];
+        $train->azienda = $data['azienda'];
+        $train->stazione_di_partenza = $data['stazione_di_partenza'];
+        $train->stazione_di_arrivo = $data['stazione_di_arrivo'];
+        $train->orario_di_partenza = $data['orario_di_partenza'];
+        $train->orario_di_arrivo = $data['orario_di_arrivo'];
+        $train->data = $data['data'];
+        $train->codice_treno = $data['codice_treno'];
+        $train->numero_carrozze = 5;
         $train->save();
 
         return redirect()->route("trains.show", $train);
